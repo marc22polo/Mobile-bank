@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "appTitle": "flutter_application_1",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
