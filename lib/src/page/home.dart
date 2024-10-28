@@ -34,22 +34,20 @@ class _HomePageState extends State<HomePage> {
             CardTile(
               color: Color(0xFF111111),
               iban: "SI56  1920  0123  4567  892",
+              amount: 704.3,
+              type: "TRR",
             ),
             CardTile(
               color: Color(0xFF222222),
               iban: "SI56  1920  0123  4567  892",
+              amount: 212.78,
+              type: "Prepaid",
             ),
             CardTile(
               color: Color(0xFF333333),
               iban: "SI56  1920  0123  4567  892",
-            ),
-            CardTile(
-              color: Color(0xFF444444),
-              iban: "SI56  1920  0123  4567  892",
-            ),
-            CardTile(
-              color: Color(0xFF555555),
-              iban: "SI56  1920  0123  4567  892",
+              amount: 25600.19,
+              type: "Golden booklet",
             ),
           ],
         ),
