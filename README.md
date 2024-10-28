@@ -1,6 +1,6 @@
 # Mobile bank
 
-A new Flutter project aimed at learnig the language-
+A new Flutter project aimed at learnig the language.
 
 ## Getting Started
 

@@ -23,5 +23,9 @@
   "loginButton": "LOGIN",
   "@loginButton": {
     "description": "Login button text"
+  },
+  "homePageTitle": "DASHBOARD",
+  "@homePageTitle": {
+    "description": "Home page title"
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../components/card_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,14 +16,44 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "HOME",
+          AppLocalizations.of(context)!.homePageTitle,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onPrimary,
+            fontSize: 18,
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       drawer: const PrimaryDrawer(),
+      body: SizedBox(
+        height: 212,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(top: 15, bottom: 15, right: 15),
+          children: const [
+            CardTile(
+              color: Color(0xFF111111),
+              iban: "SI56  1920  0123  4567  892",
+            ),
+            CardTile(
+              color: Color(0xFF222222),
+              iban: "SI56  1920  0123  4567  892",
+            ),
+            CardTile(
+              color: Color(0xFF333333),
+              iban: "SI56  1920  0123  4567  892",
+            ),
+            CardTile(
+              color: Color(0xFF444444),
+              iban: "SI56  1920  0123  4567  892",
+            ),
+            CardTile(
+              color: Color(0xFF555555),
+              iban: "SI56  1920  0123  4567  892",
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

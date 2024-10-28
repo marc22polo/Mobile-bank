@@ -23,5 +23,9 @@
   "loginButton": "PRIJAVA",
   "@loginButton": {
     "description": "Login button text"
+  },
+  "homePageTitle": "PREGLED",
+  "@homePageTitle": {
+    "description": "Home page title"
   }
 }
