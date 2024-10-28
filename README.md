@@ -1,6 +1,6 @@
-# flutter_application_1
+# Mobile bank
 
-A new Flutter project.
+A new Flutter project aimed at learnig the language-
 
 ## Getting Started
 
