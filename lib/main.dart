@@ -16,14 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginPage(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('sl'),
       ],
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
