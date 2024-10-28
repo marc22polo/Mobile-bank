@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CardTile extends StatelessWidget {
-  final Color? color;
   final String iban;
   final double amount;
   final String type;
 
   const CardTile({
     super.key,
-    required this.color,
     required this.iban,
     required this.amount,
     required this.type,
