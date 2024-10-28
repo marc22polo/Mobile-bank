@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(15)),
                   child: Text(
-                    "L O G I N", //TODO: add to arb
+                    AppLocalizations.of(context)!.loginButton,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),

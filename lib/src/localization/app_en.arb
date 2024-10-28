@@ -7,5 +7,21 @@
   "loginSlogan": "Confirm your identity",
   "@loginSlogan": {
     "description": "Login page slogan"
+  },
+  "drawerTileHome": "H O M E",
+  "@drawerTileHome": {
+    "description": "Home drawer tile"
+  },
+  "drawerTileSettings": "S E T T I N G S",
+  "@drawerTileSettings": {
+    "description": "Settings drawer tile"
+  },
+  "drawerTileLogout": "L O G O U T",
+  "@drawerTileLogout": {
+    "description": "Logout drawer tile"
+  },
+  "loginButton": "LOGIN",
+  "@loginButton": {
+    "description": "Login button text"
   }
 }

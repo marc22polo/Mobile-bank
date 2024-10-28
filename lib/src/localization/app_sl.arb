@@ -4,8 +4,24 @@
   "@appTitle": {
     "description": "The title of the application"
   },
-  "loginSlogan": "Confirm your identity",
+  "loginSlogan": "Potrdi svojo identiteto",
   "@loginSlogan": {
     "description": "Login page slogan"
+  },
+  "drawerTileHome": "D O M O V",
+  "@drawerTileHome": {
+    "description": "Home drawer tile"
+  },
+  "drawerTileSettings": "N A S T A V I T V E",
+  "@drawerTileSettings": {
+    "description": "Settings drawer tile"
+  },
+  "drawerTileLogout": "O D J A V A",
+  "@drawerTileLogout": {
+    "description": "Logout drawer tile"
+  },
+  "loginButton": "PRIJAVA",
+  "@loginButton": {
+    "description": "Login button text"
   }
 }

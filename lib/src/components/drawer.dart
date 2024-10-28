@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'drawer_tile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PrimaryDrawer extends StatelessWidget {
   const PrimaryDrawer({super.key});
@@ -27,14 +28,30 @@ class PrimaryDrawer extends StatelessWidget {
 
           // home
           PrimaryDrawerTile(
-            text: "H O M E",
+            text: AppLocalizations.of(context)!.drawerTileHome,
             icon: Icons.home,
             onTap: () => Navigator.pop(context),
           ),
 
           // settings
+          PrimaryDrawerTile(
+            text: AppLocalizations.of(context)!.drawerTileSettings,
+            icon: Icons.settings,
+            onTap: () => Navigator.pop(context),
+          ),
+
+          const Spacer(),
 
           // logout
+          PrimaryDrawerTile(
+            text: AppLocalizations.of(context)!.drawerTileLogout,
+            icon: Icons.logout,
+            onTap: () => Navigator.pop(context),
+          ),
+
+          const SizedBox(
+            height: 15,
+          ),
         ],
       ),
     );
