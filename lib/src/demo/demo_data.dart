@@ -52,7 +52,7 @@ class DemoData {
         "currencyDate": "2024-10-21"
       },
       {
-        "paymentExecutionDate": "2024-10-21",
+        "paymentExecutionDate": "2024-10-22",
         "description": "Rent Payment",
         "title": "Landlord",
         "amount": -500.00,
@@ -97,7 +97,7 @@ class DemoData {
         "currencyDate": "2024-10-17"
       },
       {
-        "paymentExecutionDate": "2024-10-17",
+        "paymentExecutionDate": "2024-10-18",
         "description": "Interest Payment",
         "title": "Bank",
         "amount": 2.50,
@@ -112,7 +112,7 @@ class DemoData {
         "currencyDate": "2024-10-16"
       },
       {
-        "paymentExecutionDate": "2024-10-16",
+        "paymentExecutionDate": "2024-10-18",
         "description": "Online Shopping",
         "title": "Fashion Store",
         "amount": -49.99,
