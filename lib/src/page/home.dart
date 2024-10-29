@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/drawer.dart';
+import 'package:flutter_application_1/src/components/transaction_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
 import '../components/card_tile.dart';
 import '../demo/demo_data.dart';
 import 'package:grouped_list/grouped_list.dart';
@@ -19,10 +19,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final myLocale = Localizations.localeOf(context).toString();
-    final longNumberFormat =
-        NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -86,67 +82,51 @@ class _HomePageState extends State<HomePage> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               order: GroupedListOrder.DESC,
+
+              // group header
               groupSeparatorBuilder: (String groupByValue) {
-                return Container(
-                  margin: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 20,
-                    bottom: 5,
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 5,
-                    horizontal: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  child: Text(
-                    groupByValue,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                return Center(
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      top: 20,
+                      bottom: 5,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.primary,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0.0, 1.0), //(x,y)
+                          blurRadius: 6.0,
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      groupByValue,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
                     ),
                   ),
                 );
               },
+
+              // group items
               itemBuilder: (context, element) {
                 return Card(
                   elevation: 8.0,
                   margin: const EdgeInsets.symmetric(
                       horizontal: 10.0, vertical: 6.0),
-                  child: SizedBox(
-                    child: ListTile(
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
-                      title: Text(
-                        element['title'],
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                        ),
-                      ),
-                      subtitle: Text(
-                        element['description'],
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFF808080),
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                      trailing: Text(
-                        longNumberFormat.format(element['amount']),
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: element['amount'] > 0
-                              ? Theme.of(context).colorScheme.primary
-                              : const Color(0xFFC21807),
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: TransactionTile(element: element),
                 );
               },
             ),
