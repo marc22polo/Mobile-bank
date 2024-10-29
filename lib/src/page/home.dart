@@ -74,6 +74,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
+          // grouped list view
           Padding(
             padding: const EdgeInsets.only(
               bottom: 10,
@@ -83,6 +85,7 @@ class _HomePageState extends State<HomePage> {
               groupBy: (element) => element['date'],
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
+              order: GroupedListOrder.DESC,
               groupSeparatorBuilder: (String groupByValue) {
                 return Container(
                   margin: const EdgeInsets.only(
@@ -101,9 +104,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: Text(
                     groupByValue,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                 );
@@ -117,12 +121,17 @@ class _HomePageState extends State<HomePage> {
                     child: ListTile(
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),
-                      title: Text(element['title']),
+                      title: Text(
+                        element['title'],
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
+                      ),
                       subtitle: Text(
                         element['description'],
                         style: const TextStyle(
                           fontSize: 12,
-                          color: Color(0xFF666666),
+                          color: Color(0xFF808080),
                           fontStyle: FontStyle.italic,
                         ),
                       ),

@@ -22,81 +22,144 @@ class DemoData {
   static List getRecentTransactionList() {
     return [
       {
-        'date': '2024-10-27',
-        'description': '',
-        'title': 'Google Payment IE LTD, Dublin',
-        'amount': -9.99,
-        'account': 'Prepaid',
+        "date": "2024-10-27",
+        "description": "",
+        "title": "Google Payment IE LTD, Dublin",
+        "amount": -9.99,
+        "account": "Prepaid"
       },
       {
-        'date': '2024-10-25',
-        'description': '',
-        'title': 'Dublin, Google Payment IE LTD',
-        'amount': -12.0,
-        'account': 'Prepaid',
+        "date": "2024-10-26",
+        "description": "Online Purchase",
+        "title": "Amazon.com",
+        "amount": -39.99,
+        "account": "Prepaid"
       },
       {
-        'date': '2024-10-25',
-        'description': 'FLIK-PRIMOŽ GABERŠČEK, MUDNO',
-        'title': 'PRIMOŽ GABERŠČEK',
-        'amount': -10.5,
-        'account': 'TRR',
+        "date": "2024-10-25",
+        "description": "Salary",
+        "title": "Employer",
+        "amount": 1500.00,
+        "account": "TRR"
       },
       {
-        'date': '2024-10-24',
-        'description': 'FLIK-ANDRAŽ KLANJŠČEK, ZVEZDA',
-        'title': 'ANDRAŽ KLANJŠČEK',
-        'amount': -7.5,
-        'account': 'TRR',
+        "date": "2024-10-24",
+        "description": "Rent Payment",
+        "title": "Landlord",
+        "amount": -700.00,
+        "account": "TRR"
       },
       {
-        'date': '2024-10-23',
-        'description': 'FLIK-LUKA ŽERJAL, GURMAN',
-        'title': 'LUKA ŽERJAL',
-        'amount': -7.5,
-        'account': 'TRR',
+        "date": "2024-10-23",
+        "description": "Grocery Shopping",
+        "title": "Supermarket",
+        "amount": -50.25,
+        "account": "Prepaid"
       },
       {
-        'date': '2024-10-22',
-        'description': 'BS MOST NA SOČI, MOST NA SOČI',
-        'title': 'BS MOST NA SOČI, MOST NA SOČI',
-        'amount': -66.47,
-        'account': 'TRR',
+        "date": "2024-10-22",
+        "description": "Cash Withdrawal",
+        "title": "ATM",
+        "amount": -100.00,
+        "account": "TRR"
       },
       {
-        'date': '2024-10-22',
-        'description': 'FLIK-ANDRAŽ KLANJŠČEK, ZVEZDA',
-        'title': 'ANDRAŽ KLANJŠČEK',
-        'amount': -7.5,
-        'account': 'TRR',
+        "date": "2024-10-21",
+        "description": "Online Shopping",
+        "title": "eBay",
+        "amount": -25.99,
+        "account": "Prepaid"
       },
       {
-        'date': '2024-10-21',
-        'description': 'FLIK-ANDRAŽ KLANJŠČEK, GURMAN',
-        'title': 'ANDRAŽ KLANJŠČEK',
-        'amount': 7.5,
-        'account': 'TRR',
+        "date": "2024-10-20",
+        "description": "Restaurant Meal",
+        "title": "Italian Restaurant",
+        "amount": -35.50,
+        "account": "Prepaid"
       },
       {
-        'date': '2024-10-21',
-        'description': 'FLIK-LUKA ŽERJAL, GURMAN',
-        'title': 'LUKA ŽERJAL',
-        'amount': 7.5,
-        'account': 'TRR',
+        "date": "2024-10-19",
+        "description": "Utility Bill Payment",
+        "title": "Electricity Company",
+        "amount": -85.00,
+        "account": "TRR"
       },
       {
-        'date': '2024-10-21',
-        'description': 'RESTAVRACIJA GURMAN, NOVA GORICA',
-        'title': 'RESTAVRACIJA GURMAN, NOVA GORICA',
-        'amount': -22.5,
-        'account': 'TRR',
+        "date": "2024-10-18",
+        "description": "Interest Payment",
+        "title": "Bank",
+        "amount": 2.50,
+        "account": "TRR"
       },
       {
-        'date': '2024-10-21',
-        'description': '35314369001, PAYPAL *NETFLIX.COM',
-        'title': '35314369001, PAYPAL *NETFLIX.COM',
-        'amount': -9.99,
-        'account': 'Prepaid',
+        "date": "2024-10-17",
+        "description": "Transfer from Savings",
+        "title": "Savings Account",
+        "amount": 200.00,
+        "account": "TRR"
+      },
+      {
+        "date": "2024-10-17",
+        "description": "Transfer from Savings",
+        "title": "Savings Account",
+        "amount": -200.00,
+        "account": "Golden booklet"
+      },
+      {
+        "date": "2024-10-16",
+        "description": "Online Course",
+        "title": "Udemy",
+        "amount": -19.99,
+        "account": "Prepaid"
+      },
+      {
+        "date": "2024-10-15",
+        "description": "Phone Bill Payment",
+        "title": "Mobile Carrier",
+        "amount": -45.00,
+        "account": "TRR"
+      },
+      {
+        "date": "2024-10-14",
+        "description": "Coffee Shop Purchase",
+        "title": "Starbucks",
+        "amount": -5.25,
+        "account": "Prepaid"
+      },
+      {
+        "date": "2024-10-13",
+        "description": "Groceries",
+        "title": "Local Market",
+        "amount": -30.75,
+        "account": "Prepaid"
+      },
+      {
+        "date": "2024-10-12",
+        "description": "Cashback",
+        "title": "Online Retailer",
+        "amount": 10.00,
+        "account": "Prepaid"
+      },
+      {
+        "date": "2024-10-11",
+        "description": "Gym Membership",
+        "title": "Fitness Center",
+        "amount": -59.99,
+        "account": "TRR"
+      },
+      {
+        "date": "2024-10-10",
+        "description": "Car Insurance",
+        "title": "Insurance Company",
+        "amount": -120.00,
+        "account": "TRR"
+      },
+      {
+        "date": "2024-10-09",
+        "description": "Dinner with Friends",
+        "title": "Restaurant",
+        "amount": -42.50,
+        "account": "Prepaid"
       },
     ];
   }
