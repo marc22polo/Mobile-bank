@@ -27,5 +27,9 @@
   "homePageTitle": "PREGLED",
   "@homePageTitle": {
     "description": "Home page title"
+  },
+  "recentTransactionTitle": "Nedavne transakcije",
+  "@recentTransactionTitle": {
+    "description": "Recent transactions title"
   }
 }
