@@ -31,5 +31,45 @@
   "recentTransactionTitle": "Nedavne transakcije",
   "@recentTransactionTitle": {
     "description": "Recent transactions title"
+  },
+  "transactionAddress": "Naslov",
+  "@transactionAddress": {
+    "description": "Transaction adderss"
+  },
+  "transactionReference": "Sklic",
+  "@transactionReference": {
+    "description": "Transaction reference"
+  },
+  "transactionName": "Ime",
+  "@transactionName": {
+    "description": "Transaction name"
+  },
+  "transactionAccount": "Račun",
+  "@transactionAccount": {
+    "description": "Transaction account"
+  },
+  "transactionAmount": "Znesek",
+  "@transactionAmount": {
+    "description": "Transaction amount"
+  },
+  "transactionCurrencyDate": "Datum valute",
+  "@transactionCurrencyDate": {
+    "description": "Transaction currency date"
+  },
+  "transactionDate": "Datum izvršitve plačila",
+  "@transactionDate": {
+    "description": "Transaction date"
+  },
+  "transactionPayerData": "Plačnik",
+  "@transactionPayerData": {
+    "description": "Transaction payer data"
+  },
+  "transactionReceiverData": "Prejemnik",
+  "@transactionReceiverData": {
+    "description": "Transaction receiver data"
+  },
+  "transactionDetail": "Podrobnosti plačila",
+  "@transactionDetail": {
+    "description": "Transaction detail"
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/drawer.dart';
+import 'package:flutter_application_1/src/components/transaction_detail.dart';
 import 'package:flutter_application_1/src/components/transaction_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -79,7 +80,8 @@ class _HomePageState extends State<HomePage> {
             ),
             child: GroupedListView(
               elements: _recentTrans,
-              groupBy: (element) => DateTime.parse(element['date']),
+              groupBy: (element) =>
+                  DateTime.parse(element['paymentExecutionDate']),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               order: GroupedListOrder.DESC,
@@ -129,7 +131,11 @@ class _HomePageState extends State<HomePage> {
                   elevation: 8.0,
                   margin: const EdgeInsets.symmetric(
                       horizontal: 10.0, vertical: 6.0),
-                  child: TransactionTile(element: element),
+                  child: GestureDetector(
+                    child: TransactionTile(element: element),
+                    onTap: () => TransactionDetail.showTransactionDetail(
+                        context, element),
+                  ),
                 );
               },
             ),

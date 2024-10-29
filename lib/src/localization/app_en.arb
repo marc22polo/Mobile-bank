@@ -31,5 +31,45 @@
   "recentTransactionTitle": "Recent transactions",
   "@recentTransactionTitle": {
     "description": "Recent transactions title"
+  },
+  "transactionAddress": "Address",
+  "@transactionAddress": {
+    "description": "Transaction adderss"
+  },
+  "transactionReference": "Reference",
+  "@transactionReference": {
+    "description": "Transaction reference"
+  },
+  "transactionName": "Name",
+  "@transactionName": {
+    "description": "Transaction name"
+  },
+  "transactionAccount": "Account",
+  "@transactionAccount": {
+    "description": "Transaction account"
+  },
+  "transactionAmount": "Amount",
+  "@transactionAmount": {
+    "description": "Transaction amount"
+  },
+  "transactionCurrencyDate": "Currency date",
+  "@transactionCurrencyDate": {
+    "description": "Transaction currency date"
+  },
+  "transactionPaymentDate": "Payment execution date",
+  "@transactionPaymentDate": {
+    "description": "Payment execution date"
+  },
+  "transactionPayerData": "Payer data",
+  "@transactionPayerData": {
+    "description": "Transaction payer data"
+  },
+  "transactionReceiverData": "Receiver Data",
+  "@transactionReceiverData": {
+    "description": "Transaction receiver data"
+  },
+  "transactionDetail": "Transaction detail",
+  "@transactionDetail": {
+    "description": "Transaction detail"
   }
 }
