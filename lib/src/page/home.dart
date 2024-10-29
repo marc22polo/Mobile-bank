@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/drawer.dart';
 import 'package:flutter_application_1/src/components/transaction_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import '../components/card_tile.dart';
 import '../demo/demo_data.dart';
 import 'package:grouped_list/grouped_list.dart';
@@ -78,13 +79,13 @@ class _HomePageState extends State<HomePage> {
             ),
             child: GroupedListView(
               elements: _recentTrans,
-              groupBy: (element) => element['date'],
+              groupBy: (element) => DateTime.parse(element['date']),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               order: GroupedListOrder.DESC,
 
               // group header
-              groupSeparatorBuilder: (String groupByValue) {
+              groupSeparatorBuilder: (DateTime groupByValue) {
                 return Center(
                   child: Container(
                     margin: const EdgeInsets.only(
@@ -109,7 +110,9 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     child: Text(
-                      groupByValue,
+                      DateFormat.yMMMMd(
+                        Localizations.localeOf(context).toString(),
+                      ).format(groupByValue),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
