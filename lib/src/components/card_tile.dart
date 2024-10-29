@@ -40,8 +40,7 @@ class CardTile extends StatelessWidget {
               height: 15,
             ),
 
-            //
-
+            // type
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Row(
@@ -58,7 +57,7 @@ class CardTile extends StatelessWidget {
               ),
             ),
 
-            //
+            // iban
             Padding(
               padding: const EdgeInsets.only(
                 bottom: 10,
@@ -78,10 +77,11 @@ class CardTile extends StatelessWidget {
                 ],
               ),
             ),
-            //
 
+            // spacer
             const Spacer(),
-            //
+
+            // balance text
             const Padding(
               padding: EdgeInsets.only(left: 15),
               child: Row(
@@ -91,6 +91,7 @@ class CardTile extends StatelessWidget {
               ),
             ),
 
+            // balance amount
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Row(
