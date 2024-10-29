@@ -59,11 +59,11 @@ class _HomePageState extends State<HomePage> {
           ),
 
           // recent transactions
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 20),
             child: Text(
-              "Recent transactions",
-              style: TextStyle(
+              AppLocalizations.of(context)!.recentTransactionTitle,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
