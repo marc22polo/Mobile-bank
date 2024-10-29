@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import '../components/card_tile.dart';
 import '../demo/demo_data.dart';
 import 'package:grouped_list/grouped_list.dart';
@@ -18,6 +19,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final myLocale = Localizations.localeOf(context).toString();
+    final longNumberFormat =
+        NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -122,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       trailing: Text(
-                        element['amount'].toString(),
+                        longNumberFormat.format(element['amount']),
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,

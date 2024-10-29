@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CardTile extends StatelessWidget {
   final String iban;
@@ -14,11 +15,14 @@ class CardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myLocale = Localizations.localeOf(context).toString();
+    final longNumberFormat =
+        NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
+
     return Padding(
       padding: const EdgeInsets.only(left: 15),
       child: Container(
         width: 337,
-        alignment: Alignment.center,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -32,30 +36,25 @@ class CardTile extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-              ),
-              child: Text(
-                "$amount €",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            const SizedBox(
+              height: 15,
             ),
+
             //
 
-            const Spacer(),
-            //
-
-            Text(
-              type,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onPrimary,
-                fontSize: 14,
-                fontStyle: FontStyle.italic,
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                children: [
+                  Text(
+                    type,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 13,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -63,23 +62,52 @@ class CardTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(
                 bottom: 10,
-                left: 10,
+                left: 15,
                 right: 10,
               ),
-              child: SizedBox(
-                height: 25,
-                child: Text(
-                  iban,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                    fontSize: 18,
-                    fontStyle: FontStyle.italic,
+              child: Row(
+                children: [
+                  Text(
+                    iban,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
-                ),
+                ],
+              ),
+            ),
+            //
+
+            const Spacer(),
+            //
+            const Padding(
+              padding: EdgeInsets.only(left: 15),
+              child: Row(
+                children: [
+                  Text("Balance"),
+                ],
               ),
             ),
 
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                children: [
+                  Text(
+                    longNumberFormat.format(amount),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             //
+
             const SizedBox(
               height: 15,
             ),
