@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class CardTile extends StatelessWidget {
+class AccountCardTile extends StatelessWidget {
   final String iban;
   final double amount;
   final String type;
 
-  const CardTile({
+  const AccountCardTile({
     super.key,
     required this.iban,
     required this.amount,

@@ -4,7 +4,7 @@ import 'package:flutter_application_1/src/components/transaction_detail.dart';
 import 'package:flutter_application_1/src/components/transaction_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import '../components/card_tile.dart';
+import '../components/account_card_tile.dart';
 import '../demo/demo_data.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 15, bottom: 15, right: 15),
               itemCount: _accounts.length,
               itemBuilder: (context, int index) {
-                return CardTile(
+                return AccountCardTile(
                   iban: _accounts[index]['iban'],
                   amount: _accounts[index]['amount'],
                   type: _accounts[index]['type'],
