@@ -56,9 +56,9 @@
   "@transactionCurrencyDate": {
     "description": "Transaction currency date"
   },
-  "transactionDate": "Datum izvršitve plačila",
-  "@transactionDate": {
-    "description": "Transaction date"
+  "transactionPaymentDate": "Datum izvršitve plačila",
+  "@transactionPaymentDate": {
+    "description": "Payment execution date"
   },
   "transactionPayerData": "Plačnik",
   "@transactionPayerData": {
@@ -71,5 +71,13 @@
   "transactionDetail": "Podrobnosti plačila",
   "@transactionDetail": {
     "description": "Transaction detail"
+  },
+  "accountOverviewTitle": "Račun",
+  "@accountOverviewTitle": {
+    "description": "Account overview title"
+  },
+  "accountCardBalance": "Stanje",
+  "@accountCardBalance": {
+    "description": "Account card balance"
   }
 }

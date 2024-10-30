@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class AccountCardTile extends StatelessWidget {
@@ -94,7 +95,7 @@ class AccountCardTile extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Balance",
+                    AppLocalizations.of(context)!.accountCardBalance,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onPrimary),
                   ),

@@ -71,5 +71,13 @@
   "transactionDetail": "Transaction detail",
   "@transactionDetail": {
     "description": "Transaction detail"
+  },
+  "accountOverviewTitle": "Account Overview",
+  "@accountOverviewTitle": {
+    "description": "Account overview title"
+  },
+  "accountCardBalance": "Balance",
+  "@accountCardBalance": {
+    "description": "Account card balance"
   }
 }
