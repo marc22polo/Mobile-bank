@@ -21,7 +21,7 @@ class PrimaryDrawerTile extends StatelessWidget {
       ),
       leading: Icon(
         icon,
-        color: Theme.of(context).colorScheme.onPrimary,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
       onTap: onTap,
     );
