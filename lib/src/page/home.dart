@@ -107,11 +107,11 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Theme.of(context).colorScheme.primary,
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 6.0,
+                          color: Theme.of(context).colorScheme.outline,
+                          offset: const Offset(0, 5), //(x,y)
+                          blurRadius: 5,
                         ),
                       ],
                     ),

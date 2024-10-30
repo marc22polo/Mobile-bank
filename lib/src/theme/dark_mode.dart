@@ -10,5 +10,6 @@ ThemeData darkMode = ThemeData(
     secondary: Color(0xFFC44D00),
     onSecondary: Color(0xFF333333),
     tertiary: Color(0xFF222222),
+    outline: Colors.transparent,
   ),
 );
