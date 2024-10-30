@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/page/settings.dart';
 import 'drawer_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -37,7 +38,15 @@ class PrimaryDrawer extends StatelessWidget {
           PrimaryDrawerTile(
             text: AppLocalizations.of(context)!.drawerTileSettings,
             icon: Icons.settings,
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SettingsPage(),
+                ),
+              );
+            },
           ),
 
           const Spacer(),

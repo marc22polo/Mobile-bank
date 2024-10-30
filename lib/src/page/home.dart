@@ -23,6 +23,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
         centerTitle: true,
         title: Text(
           AppLocalizations.of(context)!.homePageTitle,
@@ -31,11 +34,12 @@ class _HomePageState extends State<HomePage> {
             fontSize: 18,
           ),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Icon(
               Icons.notifications,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
           )
         ],

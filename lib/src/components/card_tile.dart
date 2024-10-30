@@ -89,11 +89,15 @@ class CardTile extends StatelessWidget {
             const Spacer(),
 
             // balance text
-            const Padding(
-              padding: EdgeInsets.only(left: 15),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: [
-                  Text("Balance"),
+                  Text(
+                    "Balance",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary),
+                  ),
                 ],
               ),
             ),
