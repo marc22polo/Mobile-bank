@@ -9,6 +9,6 @@ ThemeData lightMode = ThemeData(
     onPrimary: Color(0xFF222222),
     secondary: Color(0xFFC44D00),
     onSecondary: Color(0xFF222222),
-    tertiary: Color(0xFFEEEEEE),
+    tertiary: Color(0xFFF4F4F4),
   ),
 );

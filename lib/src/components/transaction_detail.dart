@@ -219,6 +219,5 @@ class TransactionDetail {
         );
       },
     );
-    ;
   }
 }

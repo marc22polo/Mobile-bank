@@ -16,6 +16,10 @@ class TransactionTile extends StatelessWidget {
         NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
 
     return ListTile(
+      tileColor: Theme.of(context).colorScheme.tertiary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       contentPadding:
           const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       title: Text(
