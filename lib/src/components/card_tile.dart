@@ -35,7 +35,7 @@ class CardTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).colorScheme.outline,
+              color: Theme.of(context).colorScheme.shadow,
               offset: const Offset(0, 3), //(x,y)
               blurRadius: 6.0,
             ),

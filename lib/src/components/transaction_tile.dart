@@ -45,7 +45,7 @@ class TransactionTile extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: element['amount'] > 0
               ? Theme.of(context).colorScheme.primary
-              : const Color(0xFFC21807),
+              : Theme.of(context).colorScheme.inversePrimary,
         ),
       ),
     );

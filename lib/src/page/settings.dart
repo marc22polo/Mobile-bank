@@ -12,7 +12,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    bool _darkMode =
+    bool darkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
 
     return Scaffold(
@@ -25,12 +25,12 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             const Text("Dark mode"),
             Checkbox(
-              value: _darkMode,
+              value: darkMode,
               onChanged: (value) {
                 Provider.of<ThemeProvider>(context, listen: false)
                     .toggleTheme();
                 setState(() {
-                  _darkMode = Provider.of<ThemeProvider>(context, listen: false)
+                  darkMode = Provider.of<ThemeProvider>(context, listen: false)
                       .isDarkMode;
                 });
               },
