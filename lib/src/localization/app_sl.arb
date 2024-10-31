@@ -79,5 +79,9 @@
   "accountCardBalance": "Stanje",
   "@accountCardBalance": {
     "description": "Account card balance"
+  },
+  "settingsTitle": "Nastavitve",
+  "@settingsTitle": {
+    "description": "Settings title"
   }
 }
