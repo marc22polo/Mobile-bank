@@ -1,8 +1,10 @@
+import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/font/custom_icons.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
-class AccountCardTile extends StatelessWidget {
+class AccountCardTile extends StatefulWidget {
   final String iban;
   final double amount;
   final String type;
@@ -15,116 +17,177 @@ class AccountCardTile extends StatelessWidget {
   });
 
   @override
+  State<AccountCardTile> createState() => _AccountCardTileState();
+}
+
+class _AccountCardTileState extends State<AccountCardTile> {
+  @override
   Widget build(BuildContext context) {
     final myLocale = Localizations.localeOf(context).toString();
     final longNumberFormat =
         NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
 
+    String colorName = 'No';
+    Color color = Colors.black;
+
     return Padding(
       padding: const EdgeInsets.only(left: 15),
-      child: Container(
-        width: 337,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Theme.of(context).colorScheme.primary,
-              Theme.of(context).colorScheme.secondary,
+      child: CircularMenu(
+        toggleButtonColor: Theme.of(context).colorScheme.primary,
+        toggleButtonIconColor: Theme.of(context).colorScheme.onPrimary,
+        alignment: Alignment.topRight,
+        toggleButtonSize: 15,
+        radius: 80,
+        items: [
+          CircularMenuItem(
+              iconSize: 15,
+              icon: Icons.more_horiz,
+              iconColor: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
+              onTap: () {
+                setState(() {
+                  color = Colors.green;
+                  colorName = 'Green';
+                });
+              }),
+          CircularMenuItem(
+              iconSize: 15,
+              icon: CustomIcons.exchange,
+              iconColor: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
+              onTap: () {
+                setState(() {
+                  color = Colors.orange;
+                  colorName = 'Orange';
+                });
+              }),
+          CircularMenuItem(
+              iconSize: 15,
+              icon: CustomIcons.doc_text,
+              iconColor: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
+              onTap: () {
+                setState(() {
+                  color = Colors.purple;
+                  colorName = 'Purple';
+                });
+              }),
+          CircularMenuItem(
+              iconSize: 15,
+              icon: Icons.camera_alt,
+              iconColor: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
+              onTap: () {
+                setState(() {
+                  color = Colors.brown;
+                  colorName = 'Brown';
+                });
+              })
+        ],
+        backgroundWidget: Container(
+          width: 337,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
+              ],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.shadow,
+                offset: const Offset(0, 3), //(x,y)
+                blurRadius: 6.0,
+              ),
             ],
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
           ),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).colorScheme.shadow,
-              offset: const Offset(0, 3), //(x,y)
-              blurRadius: 6.0,
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 15,
-            ),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
 
-            // type
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Text(
-                    type,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      fontSize: 13,
-                      fontStyle: FontStyle.italic,
+              // type
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.type,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: 13,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            // iban
-            Padding(
-              padding: const EdgeInsets.only(
-                bottom: 10,
-                left: 15,
-                right: 10,
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    iban,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      fontSize: 20,
-                      fontStyle: FontStyle.italic,
+              // iban
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 10,
+                  left: 15,
+                  right: 10,
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.iban,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            // spacer
-            const Spacer(),
+              // spacer
+              const Spacer(),
 
-            // balance text
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.accountCardBalance,
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary),
-                  ),
-                ],
-              ),
-            ),
-
-            // balance amount
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Text(
-                    longNumberFormat.format(amount),
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
+              // balance text
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.accountCardBalance,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            //
 
-            const SizedBox(
-              height: 15,
-            ),
-          ],
+              // balance amount
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  children: [
+                    Text(
+                      longNumberFormat.format(widget.amount),
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              //
+
+              const SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
         ),
       ),
     );
