@@ -30,7 +30,7 @@ flutter:
   fonts:
     - family:  CustomIcons
       fonts:
-       - asset: lib/src/font/CustomIcons.ttf
+       - asset: assets/font/CustomIcons.ttf
 
   # Enable generation of localized Strings from arb files.
   generate: true

@@ -1,6 +1,6 @@
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/font/custom_icons.dart';
+import 'package:flutter_application_1/src/components/custom_icons.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
