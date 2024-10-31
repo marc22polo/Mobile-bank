@@ -19,7 +19,7 @@ jobs:
     steps:
         #1 Checkout Repository
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
         #2 Setup Java
       - name: Set Up Java
@@ -32,7 +32,7 @@ jobs:
       - name: Set Up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.2'
+          flutter-version: '3.24.4'
           channel: 'stable'
 
         #4 Install Dependencies
