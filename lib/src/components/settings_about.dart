@@ -26,10 +26,14 @@ class SettingsAbout {
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Row(
+                child: Column(
                   children: [
-                    Text("Version:"),
-                    Text("0.0.1 alpha"),
+                    Row(
+                      children: [
+                        Text("Version:"),
+                        Text("0.0.1 alpha"),
+                      ],
+                    ),
                   ],
                 ),
               )

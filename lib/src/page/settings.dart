@@ -1,9 +1,10 @@
-import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/components/settings_about.dart';
 import 'package:flutter_application_1/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_application_1/src/components/Settings_group.dart';
+import 'package:flutter_application_1/src/components/settings_item.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -34,23 +35,15 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, left: 16),
-              child: Text(
-                "Personalization",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: SettingsGroup(
+              settingsGroupTitle: "Personalization",
+              settingsGroupTitleStyle: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               items: [
                 SettingsItem(
@@ -83,23 +76,15 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5, left: 16),
-              child: Text(
-                "About",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: SettingsGroup(
+              settingsGroupTitle: "About",
+              settingsGroupTitleStyle: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               items: [
                 SettingsItem(
