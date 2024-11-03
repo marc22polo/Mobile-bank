@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank/src/components/selection_window.dart';
 import 'package:mobile_bank/src/components/settings_about.dart';
 import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -54,21 +55,27 @@ class _SettingsPageState extends State<SettingsPage> {
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
-                  trailing: DropdownButton<ThemeMode>(
-                    value: themeMode,
-                    onChanged: (newThemeMode) {
-                      themeMode = newThemeMode;
-                      Provider.of<ThemeProvider>(context, listen: false)
-                          .setTheme(themeMode);
-                      setState(() {
-                        themeMode;
-                      });
-                    },
-                    items: ThemeMode.values.map((ThemeMode themeModes) {
-                      return DropdownMenuItem<ThemeMode>(
-                          value: themeModes, child: Text(themeModes.name));
-                    }).toList(),
-                  ),
+                  onTap: () async {
+                    int? val = await showDialog<int>(
+                      context: context,
+                      builder: (context) => SelectionWindow(
+                        title: "Theme",
+                        values: ThemeMode.values.map((ThemeMode themeModes) {
+                          return themeModes.name;
+                        }).toList(),
+                      ),
+                    );
+
+                    val ??= val = 0;
+                    themeMode = ThemeMode.values.elementAt(val);
+                    // ignore: use_build_context_synchronously
+                    Provider.of<ThemeProvider>(context,
+                            listen: false) // TODO: remove the ignore
+                        .setTheme(themeMode);
+                    setState(() {
+                      themeMode;
+                    });
+                  },
                 ),
                 SettingsItem(
                   icons: Icons.translate_outlined,
