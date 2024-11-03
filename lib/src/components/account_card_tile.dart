@@ -27,9 +27,6 @@ class _AccountCardTileState extends State<AccountCardTile> {
     final longNumberFormat =
         NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
 
-    String colorName = 'No';
-    Color color = Colors.black;
-
     return Padding(
       padding: const EdgeInsets.only(left: 15),
       child: CircularMenu(
@@ -45,10 +42,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
               onTap: () {
-                setState(() {
-                  color = Colors.green;
-                  colorName = 'Green';
-                });
+                setState(() {});
               }),
           CircularMenuItem(
               iconSize: 15,
@@ -56,10 +50,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
               onTap: () {
-                setState(() {
-                  color = Colors.orange;
-                  colorName = 'Orange';
-                });
+                setState(() {});
               }),
           CircularMenuItem(
               iconSize: 15,
@@ -67,10 +58,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
               onTap: () {
-                setState(() {
-                  color = Colors.purple;
-                  colorName = 'Purple';
-                });
+                setState(() {});
               }),
           CircularMenuItem(
               iconSize: 15,
@@ -78,10 +66,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
               onTap: () {
-                setState(() {
-                  color = Colors.brown;
-                  colorName = 'Brown';
-                });
+                setState(() {});
               })
         ],
         backgroundWidget: Container(
