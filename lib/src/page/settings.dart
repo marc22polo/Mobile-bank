@@ -66,15 +66,16 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     );
 
-                    val ??= val = 0;
-                    themeMode = ThemeMode.values.elementAt(val);
-                    // ignore: use_build_context_synchronously
-                    Provider.of<ThemeProvider>(context,
-                            listen: false) // TODO: remove the ignore
-                        .setTheme(themeMode);
-                    setState(() {
-                      themeMode;
-                    });
+                    if (val != null) {
+                      themeMode = ThemeMode.values.elementAt(val);
+                      // ignore: use_build_context_synchronously
+                      Provider.of<ThemeProvider>(context,
+                              listen: false) // TODO: remove the ignore
+                          .setTheme(themeMode);
+                      setState(() {
+                        themeMode;
+                      });
+                    }
                   },
                 ),
                 SettingsItem(
