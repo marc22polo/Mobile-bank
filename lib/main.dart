@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/theme/theme_provider.dart';
+import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'src/page/login.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

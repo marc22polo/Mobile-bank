@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/components/drawer.dart';
-import 'package:flutter_application_1/src/components/transaction_detail.dart';
-import 'package:flutter_application_1/src/components/transaction_tile.dart';
+import 'package:mobile_bank/src/components/drawer.dart';
+import 'package:mobile_bank/src/components/transaction_detail.dart';
+import 'package:mobile_bank/src/components/transaction_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import '../components/account_card_tile.dart';

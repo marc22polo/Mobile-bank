@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/components/settings_about.dart';
-import 'package:flutter_application_1/src/theme/theme_provider.dart';
+import 'package:mobile_bank/src/components/settings_about.dart';
+import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_application_1/src/components/Settings_group.dart';
-import 'package:flutter_application_1/src/components/settings_item.dart';
+import 'package:mobile_bank/src/components/Settings_group.dart';
+import 'package:mobile_bank/src/components/settings_item.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});

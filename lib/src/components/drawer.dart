@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/page/settings.dart';
+import 'package:mobile_bank/src/page/settings.dart';
 import 'drawer_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

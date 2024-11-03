@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/components/transaction_detail_value.dart';
+import 'package:mobile_bank/src/components/transaction_detail_value.dart';
 
 class TransactionDataRow extends StatelessWidget {
   final String title;
