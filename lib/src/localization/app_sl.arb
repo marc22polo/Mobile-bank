@@ -83,5 +83,25 @@
   "settingsTitle": "Nastavitve",
   "@settingsTitle": {
     "description": "Settings title"
+  },
+  "settingsPersonalizationTitle": "Prilagoditev",
+  "@settingsPersonalizationTitle": {
+    "description": "Settings personalization title"
+  },
+  "settingsDarkMode": "Temen način",
+  "@settingsDarkMode": {
+    "description": "Settings dark mode"
+  },
+  "settingsLanguage": "Jezik",
+  "@settingsLanguage": {
+    "description": "Settings language"
+  },
+  "settingsAboutTitle": "O aplikaciji",
+  "@settingsAboutTitle": {
+    "description": "Settings about title"
+  },
+  "settingsAbout": "O aplikaciji",
+  "@settingsAbout": {
+    "description": "Settings about"
   }
 }

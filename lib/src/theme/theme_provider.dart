@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'dark_mode.dart';
 import 'light_mode.dart';
 
@@ -14,12 +15,24 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleTheme() {
-    if (_themeData == lightMode) {
-      themeData = darkMode;
-    } else {
-      themeData = lightMode;
+  void setTheme(ThemeMode? newTheme) {
+    newTheme ??= ThemeMode.system;
+
+    switch (newTheme) {
+      case ThemeMode.system:
+        var brightness =
+            SchedulerBinding.instance.platformDispatcher.platformBrightness;
+        if (brightness == Brightness.dark) {
+          themeData = darkMode;
+        } else {
+          themeData = lightMode;
+        }
+        break;
+      case ThemeMode.dark:
+        themeData = darkMode;
+        break;
+      default:
+        themeData = lightMode;
     }
   }
-
 }

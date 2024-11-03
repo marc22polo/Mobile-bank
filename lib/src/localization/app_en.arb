@@ -83,5 +83,25 @@
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Settings title"
+  },
+  "settingsPersonalizationTitle": "Personalization",
+  "@settingsPersonalizationTitle": {
+    "description": "Settings personalization title"
+  },
+  "settingsDarkMode": "Dark mode",
+  "@settingsDarkMode": {
+    "description": "Settings dark mode"
+  },
+  "settingsLanguage": "Language",
+  "@settingsLanguage": {
+    "description": "Settings language"
+  },
+  "settingsAboutTitle": "About",
+  "@settingsAboutTitle": {
+    "description": "Settings about title"
+  },
+  "settingsAbout": "About",
+  "@settingsAbout": {
+    "description": "Settings about"
   }
 }

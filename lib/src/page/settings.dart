@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_bank/src/components/settings_about.dart';
 import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:mobile_bank/src/components/Settings_group.dart';
 import 'package:mobile_bank/src/components/settings_item.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -14,10 +14,11 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  ThemeMode? themeMode;
+
   @override
   Widget build(BuildContext context) {
-    bool darkMode =
-        Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
+    themeMode ??= ThemeMode.system;
 
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +39,8 @@ class _SettingsPageState extends State<SettingsPage> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: SettingsGroup(
-              settingsGroupTitle: "Personalization",
+              settingsGroupTitle:
+                  AppLocalizations.of(context)!.settingsPersonalizationTitle,
               settingsGroupTitleStyle: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -48,26 +50,30 @@ class _SettingsPageState extends State<SettingsPage> {
               items: [
                 SettingsItem(
                   icons: Icons.dark_mode_outlined,
-                  title: "Dark mode",
+                  title: AppLocalizations.of(context)!.settingsDarkMode,
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
-                  trailing: Switch.adaptive(
-                    value: darkMode,
-                    onChanged: (value) {
+                  trailing: DropdownButton<ThemeMode>(
+                    value: themeMode,
+                    onChanged: (newThemeMode) {
+                      themeMode = newThemeMode;
                       Provider.of<ThemeProvider>(context, listen: false)
-                          .toggleTheme();
+                          .setTheme(themeMode);
                       setState(() {
-                        darkMode =
-                            Provider.of<ThemeProvider>(context, listen: false)
-                                .isDarkMode;
+                        themeMode;
                       });
                     },
+                    items: ThemeMode.values.map((ThemeMode themeModes) {
+                      return DropdownMenuItem<ThemeMode>(
+                          value: themeModes, child: Text(themeModes.name));
+                    }).toList(),
                   ),
                 ),
                 SettingsItem(
-                  icons: Icons.language_outlined,
-                  title: "Language (WIP)",
+                  icons: Icons.translate_outlined,
+                  title:
+                      "${AppLocalizations.of(context)!.settingsLanguage} (WIP)",
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
@@ -79,7 +85,8 @@ class _SettingsPageState extends State<SettingsPage> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: SettingsGroup(
-              settingsGroupTitle: "About",
+              settingsGroupTitle:
+                  AppLocalizations.of(context)!.settingsAboutTitle,
               settingsGroupTitleStyle: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -89,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
               items: [
                 SettingsItem(
                   icons: Icons.info_outline,
-                  title: "About",
+                  title: AppLocalizations.of(context)!.settingsAbout,
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
