@@ -64,7 +64,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
-                  subtitle: themeMode.name,
+                  subtitle:
+                      "${themeMode.name[0].toUpperCase()}${themeMode.name.substring(1).toLowerCase()}",
                   onTap: () async {
                     int? val = await showDialog<int>(
                       context: context,
@@ -72,7 +73,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         title: "Theme",
                         selectedValue: themeMode.index,
                         values: ThemeMode.values.map((ThemeMode themeModes) {
-                          return themeModes.name;
+                          return "${themeModes.name[0].toUpperCase()}${themeModes.name.substring(1).toLowerCase()}";
                         }).toList(),
                       ),
                     );
