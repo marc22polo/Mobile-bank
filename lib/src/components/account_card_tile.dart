@@ -26,6 +26,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
     final myLocale = Localizations.localeOf(context).toString();
     final longNumberFormat =
         NumberFormat.currency(locale: myLocale, symbol: '€ ', decimalDigits: 2);
+    final double menuItemIconSize = 25;
 
     return Padding(
       padding: const EdgeInsets.only(left: 15),
@@ -34,10 +35,10 @@ class _AccountCardTileState extends State<AccountCardTile> {
         toggleButtonIconColor: Theme.of(context).colorScheme.onPrimary,
         alignment: Alignment.topRight,
         toggleButtonSize: 15,
-        radius: 80,
+        radius: 100,
         items: [
           CircularMenuItem(
-              iconSize: 15,
+              iconSize: menuItemIconSize,
               icon: Icons.more_horiz,
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
@@ -45,7 +46,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
                 setState(() {});
               }),
           CircularMenuItem(
-              iconSize: 15,
+              iconSize: menuItemIconSize,
               icon: CustomIcons.exchange,
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
@@ -53,7 +54,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
                 setState(() {});
               }),
           CircularMenuItem(
-              iconSize: 15,
+              iconSize: menuItemIconSize,
               icon: CustomIcons.doc_text,
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
@@ -61,7 +62,7 @@ class _AccountCardTileState extends State<AccountCardTile> {
                 setState(() {});
               }),
           CircularMenuItem(
-              iconSize: 15,
+              iconSize: menuItemIconSize,
               icon: Icons.camera_alt,
               iconColor: Theme.of(context).colorScheme.onPrimary,
               color: Theme.of(context).colorScheme.primary,
