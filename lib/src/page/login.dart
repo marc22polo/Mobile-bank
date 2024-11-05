@@ -1,11 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobile_bank/src/page/home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:mobile_bank/src/theme/theme_provider.dart';
-import 'package:mobile_bank/src/util/hive_settings.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
