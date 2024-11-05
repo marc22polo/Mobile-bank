@@ -15,7 +15,9 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void setTheme(ThemeMode? newTheme) {
+  void setTheme(ThemeMode? newTheme) => themeData = getTheme(newTheme);
+
+  ThemeData getTheme(ThemeMode? newTheme) {
     newTheme ??= ThemeMode.system;
 
     switch (newTheme) {
@@ -23,16 +25,14 @@ class ThemeProvider with ChangeNotifier {
         var brightness =
             SchedulerBinding.instance.platformDispatcher.platformBrightness;
         if (brightness == Brightness.dark) {
-          themeData = darkMode;
+          return darkMode;
         } else {
-          themeData = lightMode;
+          return lightMode;
         }
-        break;
       case ThemeMode.dark:
-        themeData = darkMode;
-        break;
+        return darkMode;
       default:
-        themeData = lightMode;
+        return lightMode;
     }
   }
 }

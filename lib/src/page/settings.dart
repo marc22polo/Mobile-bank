@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobile_bank/src/components/selection_window.dart';
 import 'package:mobile_bank/src/components/settings_about.dart';
 import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mobile_bank/src/components/Settings_group.dart';
 import 'package:mobile_bank/src/components/settings_item.dart';
+import 'package:mobile_bank/src/util/hive_settings.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -15,12 +17,19 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  ThemeMode? themeMode;
+  late ThemeMode themeMode;
+  final _settingsBox = Hive.box('settings_box');
+
+  @override
+  void initState() {
+    super.initState();
+
+    themeMode = ThemeMode.values.elementAt(
+        _settingsBox.get(HiveSettings.settingsTheme.name, defaultValue: 0));
+  }
 
   @override
   Widget build(BuildContext context) {
-    themeMode ??= ThemeMode.system;
-
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -55,11 +64,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
+                  subtitle: themeMode.name,
                   onTap: () async {
                     int? val = await showDialog<int>(
                       context: context,
                       builder: (context) => SelectionWindow(
                         title: "Theme",
+                        selectedValue: themeMode.index,
                         values: ThemeMode.values.map((ThemeMode themeModes) {
                           return themeModes.name;
                         }).toList(),
@@ -72,6 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       Provider.of<ThemeProvider>(context,
                               listen: false) // TODO: remove the ignore
                           .setTheme(themeMode);
+                      _settingsBox.put(HiveSettings.settingsTheme.name, val);
                       setState(() {
                         themeMode;
                       });
