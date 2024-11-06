@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank/src/util/selection_window_helper.dart';
 
 class SelectionWindow extends StatefulWidget {
   final String title;
   final List<String> values;
   final int selectedValue;
+  final Function? onPressOK;
 
   const SelectionWindow({
     super.key,
     required this.title,
     required this.values,
     this.selectedValue = 0,
+    this.onPressOK,
   });
 
   @override
@@ -31,23 +34,26 @@ class _SelectionWindowState extends State<SelectionWindow> {
           borderRadius: BorderRadius.all(Radius.circular(20))),
       actions: <Widget>[
         TextButton(
+          onPressed: () => Navigator.pop(context),
           child: Text(
             'CANCEL',
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          onPressed: () => Navigator.pop(context),
         ),
         TextButton(
-          child: Text(
-            'OK',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-          onPressed: () => Navigator.pop(context, currSelectedValue),
-        ),
+            onPressed: () {
+              SelectionWindowHelper.selectedValue = currSelectedValue;
+              widget.onPressOK!();
+              Navigator.pop(context);
+            },
+            child: Text(
+              'OK',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            )),
       ],
       content: StatefulBuilder(builder: (context, setState) {
         return SingleChildScrollView(

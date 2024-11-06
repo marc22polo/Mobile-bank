@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobile_bank/src/components/selection_window.dart';
 import 'package:mobile_bank/src/components/settings_about.dart';
-import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mobile_bank/src/components/Settings_group.dart';
 import 'package:mobile_bank/src/components/settings_item.dart';
+import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:mobile_bank/src/util/hive_settings.dart';
+import 'package:mobile_bank/src/util/selection_window_helper.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -67,7 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   subtitle:
                       "${themeMode.name[0].toUpperCase()}${themeMode.name.substring(1).toLowerCase()}",
                   onTap: () async {
-                    int? val = await showDialog<int>(
+                    ThemeMode? tempTheme = await showDialog<ThemeMode>(
                       context: context,
                       builder: (context) => SelectionWindow(
                         title: "Theme",
@@ -75,18 +76,27 @@ class _SettingsPageState extends State<SettingsPage> {
                         values: ThemeMode.values.map((ThemeMode themeModes) {
                           return "${themeModes.name[0].toUpperCase()}${themeModes.name.substring(1).toLowerCase()}";
                         }).toList(),
+                        onPressOK: () {
+                          int? currSelectedValue =
+                              SelectionWindowHelper.selectedValue;
+                          currSelectedValue ??= 0;
+
+                          themeMode =
+                              ThemeMode.values.elementAt(currSelectedValue);
+                          Provider.of<ThemeProvider>(context, listen: false)
+                              .setTheme(themeMode);
+                          _settingsBox.put(HiveSettings.settingsTheme.name,
+                              currSelectedValue);
+                          setState(() {
+                            themeMode;
+                          });
+                        },
                       ),
                     );
 
-                    if (val != null) {
-                      themeMode = ThemeMode.values.elementAt(val);
-                      // ignore: use_build_context_synchronously
-                      Provider.of<ThemeProvider>(context,
-                              listen: false) // TODO: remove the ignore
-                          .setTheme(themeMode);
-                      _settingsBox.put(HiveSettings.settingsTheme.name, val);
+                    if (tempTheme != null) {
                       setState(() {
-                        themeMode;
+                        themeMode = tempTheme;
                       });
                     }
                   },
