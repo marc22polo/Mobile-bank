@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:mobile_bank/src/util/hive_settings.dart';
+import 'package:mobile_bank/src/util/locale_provider.dart';
 import 'src/page/login.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
     late ThemeMode themeMode;
     final settingsBox = Hive.box('settings_box');
 
+    // settingsBox.delete(HiveSettings.settingsTheme.name);
+    // settingsBox.delete(HiveSettings.settingsLocale.name);
+
     themeMode = ThemeMode.values.elementAt(
         settingsBox.get(HiveSettings.settingsTheme.name, defaultValue: 0));
 
@@ -35,15 +39,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: const [
-        Locale('en'),
-        Locale('sl'),
-      ],
-      theme: getTheme(context),
+    return ChangeNotifierProvider(
+      create: (context) => LocaleProvider(),
+      child: Consumer<LocaleProvider>(
+        builder: (context, localeProvider, child) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: const LoginPage(),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: const [
+            Locale('en'),
+            Locale('sl'),
+          ],
+          locale: localeProvider.locale,
+          theme: getTheme(context),
+        ),
+      ),
     );
   }
 }

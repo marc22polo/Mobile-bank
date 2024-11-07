@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:language_picker/languages.dart';
 import 'package:mobile_bank/src/components/selection_window.dart';
 import 'package:mobile_bank/src/components/settings_about.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,6 +8,7 @@ import 'package:mobile_bank/src/components/Settings_group.dart';
 import 'package:mobile_bank/src/components/settings_item.dart';
 import 'package:mobile_bank/src/theme/theme_provider.dart';
 import 'package:mobile_bank/src/util/hive_settings.dart';
+import 'package:mobile_bank/src/util/locale_provider.dart';
 import 'package:mobile_bank/src/util/selection_window_helper.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +21,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   late ThemeMode themeMode;
+  late Language defaultLanguage;
   final _settingsBox = Hive.box('settings_box');
 
   @override
@@ -27,6 +30,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
     themeMode = ThemeMode.values.elementAt(
         _settingsBox.get(HiveSettings.settingsTheme.name, defaultValue: 0));
+    defaultLanguage = Language.fromIsoCode(
+        _settingsBox.get(HiveSettings.settingsLocale.name, defaultValue: 'en'));
   }
 
   @override
@@ -67,8 +72,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   subtitle:
                       "${themeMode.name[0].toUpperCase()}${themeMode.name.substring(1).toLowerCase()}",
-                  onTap: () async {
-                    ThemeMode? tempTheme = await showDialog<ThemeMode>(
+                  onTap: () {
+                    showDialog(
                       context: context,
                       builder: (context) => SelectionWindow(
                         title: "Theme",
@@ -93,22 +98,45 @@ class _SettingsPageState extends State<SettingsPage> {
                         },
                       ),
                     );
-
-                    if (tempTheme != null) {
-                      setState(() {
-                        themeMode = tempTheme;
-                      });
-                    }
                   },
                 ),
                 SettingsItem(
                   icons: Icons.translate_outlined,
-                  title:
-                      "${AppLocalizations.of(context)!.settingsLanguage} (WIP)",
+                  title: AppLocalizations.of(context)!.settingsLanguage,
                   titleStyle: const TextStyle(
                     fontWeight: FontWeight.normal,
                   ),
-                  subtitle: "English",
+                  subtitle: defaultLanguage.nativeName,
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => SelectionWindow(
+                        title: "Language",
+                        selectedValue: themeMode.index,
+                        values: LocaleProvider.supportedLocales
+                            .map((Language languages) {
+                          return languages.nativeName;
+                        }).toList(),
+                        onPressOK: () {
+                          int? currSelectedValue =
+                              SelectionWindowHelper.selectedValue;
+                          currSelectedValue ??= 0;
+
+                          defaultLanguage = LocaleProvider.supportedLocales
+                              .elementAt(currSelectedValue);
+                          Provider.of<LocaleProvider>(context, listen: false)
+                              .setLocale(
+                                  locale: Locale(defaultLanguage.isoCode));
+
+                          _settingsBox.put(HiveSettings.settingsLocale.name,
+                              defaultLanguage.isoCode);
+                          setState(() {
+                            defaultLanguage;
+                          });
+                        },
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

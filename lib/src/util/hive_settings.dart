@@ -1,1 +1,1 @@
-enum HiveSettings { settingsTheme }
+enum HiveSettings { settingsTheme, settingsLocale }
