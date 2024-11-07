@@ -103,5 +103,13 @@
   "settingsAbout": "O aplikaciji",
   "@settingsAbout": {
     "description": "Settings about"
+  },
+  "settingsThemeDialog": "Teme",
+  "@settingsThemeDialog": {
+    "description": "Settings theme dialog"
+  },
+  "settingsLanguageDialog": "Jezik",
+  "@settingsLanguageDialog": {
+    "description": "Settings language dialog"
   }
 }

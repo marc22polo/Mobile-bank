@@ -103,5 +103,13 @@
   "settingsAbout": "About",
   "@settingsAbout": {
     "description": "Settings about"
+  },
+  "settingsThemeDialog": "Theme",
+  "@settingsThemeDialog": {
+    "description": "Settings theme dialog"
+  },
+  "settingsLanguageDialog": "Language",
+  "@settingsLanguageDialog": {
+    "description": "Settings language dialog"
   }
 }
